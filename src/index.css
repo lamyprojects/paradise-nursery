@@ -1,0 +1,178 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Paradise Nursery Design System — All colors in HSL */
+
+@layer base {
+  :root {
+    /* Brand greens */
+    --nursery-green: 122 39% 37%;        /* #3a8a3c forest green header */
+    --nursery-green-dark: 125 45% 28%;   /* darker green */
+    --nursery-green-light: 122 38% 44%;  /* lighter green for hover */
+    --nursery-green-pale: 120 30% 92%;   /* very light green tint */
+
+    /* Page colors */
+    --background: 0 0% 95%;             /* light gray page bg */
+    --foreground: 0 0% 10%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+
+    /* Primary = brand green */
+    --primary: 122 39% 37%;
+    --primary-foreground: 0 0% 100%;
+
+    --secondary: 122 20% 90%;
+    --secondary-foreground: 122 39% 30%;
+
+    --muted: 0 0% 88%;
+    --muted-foreground: 0 0% 45%;
+
+    --accent: 122 39% 37%;
+    --accent-foreground: 0 0% 100%;
+
+    /* SALE badge */
+    --sale: 14 100% 57%;
+    --sale-foreground: 0 0% 100%;
+
+    /* Price color (orange-red as in screenshot) */
+    --price: 14 90% 48%;
+
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+
+    --border: 0 0% 82%;
+    --input: 0 0% 82%;
+    --ring: 122 39% 37%;
+    --radius: 0.5rem;
+
+    /* Sidebar (unused but required) */
+    --sidebar-background: 122 39% 37%;
+    --sidebar-foreground: 0 0% 98%;
+    --sidebar-primary: 0 0% 98%;
+    --sidebar-primary-foreground: 122 39% 37%;
+    --sidebar-accent: 122 30% 32%;
+    --sidebar-accent-foreground: 0 0% 98%;
+    --sidebar-border: 122 30% 32%;
+    --sidebar-ring: 122 39% 37%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  }
+}
+
+/* ─── Nursery-specific utility classes ─── */
+@layer components {
+  /* Green header bar */
+  .nursery-header {
+    background-color: hsl(var(--nursery-green));
+    color: hsl(0 0% 100%);
+  }
+
+  /* Primary green button */
+  .btn-nursery {
+    background-color: hsl(var(--nursery-green));
+    color: hsl(0 0% 100%);
+    border: none;
+    border-radius: 6px;
+    padding: 0.5rem 1.25rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  .btn-nursery:hover {
+    background-color: hsl(var(--nursery-green-light));
+  }
+  .btn-nursery:disabled {
+    background-color: hsl(0 0% 55%);
+    cursor: not-allowed;
+  }
+
+  /* Red delete button */
+  .btn-delete {
+    background-color: hsl(0 75% 55%);
+    color: hsl(0 0% 100%);
+    border: none;
+    border-radius: 6px;
+    padding: 0.35rem 0.9rem;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: background-color 0.2s;
+  }
+  .btn-delete:hover {
+    background-color: hsl(0 75% 45%);
+  }
+
+  /* Qty control buttons */
+  .btn-qty {
+    background-color: hsl(0 0% 100%);
+    border: 1px solid hsl(var(--border));
+    border-radius: 4px;
+    width: 28px;
+    height: 28px;
+    font-size: 1rem;
+    line-height: 1;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.15s;
+  }
+  .btn-qty:hover {
+    background-color: hsl(var(--nursery-green-pale));
+  }
+
+  /* Plant card */
+  .plant-card {
+    background: hsl(var(--card));
+    border-radius: 8px;
+    box-shadow: 0 2px 8px hsl(0 0% 0% / 0.10);
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: relative;
+    text-align: center;
+  }
+
+  /* SALE badge */
+  .sale-badge {
+    position: absolute;
+    top: 8px;
+    right: 8px;
+    background-color: hsl(var(--sale));
+    color: hsl(var(--sale-foreground));
+    font-size: 0.7rem;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.05em;
+  }
+
+  /* Cart item row */
+  .cart-item-card {
+    background: hsl(var(--card));
+    border-radius: 8px;
+    box-shadow: 0 2px 8px hsl(0 0% 0% / 0.08);
+    display: grid;
+    grid-template-columns: 140px 1fr;
+    gap: 1rem;
+    padding: 1rem;
+    margin-bottom: 1rem;
+    align-items: center;
+  }
+}
+
